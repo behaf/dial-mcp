@@ -4,8 +4,15 @@
   "title": "Dial by Behaf",
   "description": "Lets your AI phone Indian businesses for bookings, enquiries and status checks, in Indian languages.",
   "websiteUrl": "https://www.behaf.co/dial",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "remotes": [
-    { "type": "streamable-http", "url": "https://dial.behaf.co/mcp" }
-  ]
+    {
+      "type": "streamable-http",
+      "url": "https://dial.behaf.co/mcp"
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/behaf/dial-mcp",
+    "source": "github"
+  }
 }
