@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "dial-by-behaf",
+  "version": "1.0.1",
+  "description": "Let your AI assistant make real phone calls to Indian businesses (bookings, enquiries, status checks) in Indian languages, and bring back a summary and transcript.",
+  "author": { "name": "Behaf", "email": "jerish@behaf.co", "url": "https://www.behaf.co" },
+  "homepage": "https://www.behaf.co/dial-docs",
+  "repository": "https://github.com/behaf/dial-mcp",
+  "license": "MIT",
+  "keywords": ["phone-calls", "voice", "india", "bookings", "mcp"]
+}
