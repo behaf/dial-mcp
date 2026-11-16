@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "dial": { "url": "https://dial.behaf.co/mcp" }
+  }
+}
