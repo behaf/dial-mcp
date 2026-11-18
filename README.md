@@ -10,7 +10,8 @@ Dial is a remote [MCP](https://modelcontextprotocol.io) server. Add it to Claude
 
 - Website: https://www.behaf.co/dial
 - Docs: https://www.behaf.co/dial-docs
-- Sign in and wallet: https://dial.behaf.co
+- Early access: join the waitlist at https://www.behaf.co/dial#join (we email you when it opens for you)
+- Sign in and wallet (once you have access): https://dial.behaf.co
 - MCP Registry: `co.behaf/dial`
 
 ## Connector URL
