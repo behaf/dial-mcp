@@ -84,3 +84,7 @@ No call audio is recorded. Dial keeps your call requests, written transcripts an
 ## Support
 
 jerish@behaf.co
+
+---
+
+Dial by Behaf is not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic.
