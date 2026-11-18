@@ -2,6 +2,10 @@
 
 Let your AI assistant make real phone calls to Indian businesses.
 
+<a href="https://www.behaf.co/assets/dial/dial-give-claude-a-phone.mp4"><img src="assets/give-claude-a-phone.png" alt="Watch: Give Claude a phone (31 s video)" width="360"></a>
+
+▶ **[Watch: Give Claude a phone (31 s)](https://www.behaf.co/assets/dial/dial-give-claude-a-phone.mp4)**. Calls shown are staged examples.
+
 Dial is a remote [MCP](https://modelcontextprotocol.io) server. Add it to Claude, Claude Code, Cursor or another MCP client, ask for a call in plain words, and your assistant phones the business, gets through the menu and the hold music, talks to the person who answers, and brings back a summary, the outcome and the transcript.
 
 - Website: https://www.behaf.co/dial
