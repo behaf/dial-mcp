@@ -43,7 +43,7 @@ Streamable HTTP, OAuth sign-in, no API keys. `https://dial.behaf.co/mcp` is a co
 
 Dial is in early access. We open it to a few people at a time, so every call can be done well.
 
-**Developers:** join the developer list at https://www.behaf.co/dial?dev=1&src=github#join. We'll email you when your access opens. Then sign in at https://dial.behaf.co, add money to your wallet (UPI or card), and add the URL above.
+**Developers:** join the developer list at https://www.behaf.co/dial?dev=1&src=github#join. We'll email you when your access opens, with the steps to sign in at https://dial.behaf.co and set up your wallet. Then add the URL above.
 
 ## Try it
 
@@ -86,7 +86,7 @@ Calls can open in English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Ma
 
 ## Price
 
-See https://www.behaf.co/dial-pricing. Prepaid wallet at https://dial.behaf.co (UPI or card).
+See https://www.behaf.co/dial-pricing. Calls are paid from a prepaid Dial wallet.
 
 ## Data
 
