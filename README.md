@@ -9,9 +9,7 @@ claude mcp add --transport http dial https://dial.behaf.co/mcp
 
 [Docs](https://www.behaf.co/dial-docs) · [Setup page](https://www.behaf.co/mcp) · [Discussions](https://github.com/behaf/dial-mcp/discussions) · [MCP Registry: `co.behaf/dial`](https://registry.modelcontextprotocol.io/v0/servers?search=co.behaf)
 
-<a href="https://www.behaf.co/assets/dial/dial-give-claude-a-phone.mp4"><img src="assets/give-claude-a-phone.png" alt="Watch: add Dial and place a call (31 s)" width="360"></a>
-
-The call in the video is a staged example.
+<a href="https://www.behaf.co/dial?src=github"><img src="assets/dial-you-ask-dial-calls.jpg" alt="Dial by Behaf. You ask. Dial calls." width="640"></a>
 
 ---
 
