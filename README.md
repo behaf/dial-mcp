@@ -82,6 +82,17 @@ Languages a call can open in: English (`en-IN`), Hindi, Bengali, Tamil, Telugu, 
 
 No call audio is recorded. Dial keeps your call requests, written transcripts and summaries so you can check what was said; you can delete your data at any time. See the [privacy page](https://www.behaf.co/dial-privacy) and [terms](https://www.behaf.co/dial-terms).
 
+## Build Dial with us
+
+Imagine you had a personal assistant who handles your calls. Now imagine you could build on it.
+
+Dial is early, and developers shape what it becomes:
+- **Ideas:** what should Dial do next? Post in [Discussions → Ideas](https://github.com/behaf/dial-mcp/discussions/categories/ideas).
+- **Bugs and odd calls:** open a [discussion in Q&A](https://github.com/behaf/dial-mcp/discussions/categories/q-a) with what you asked and what happened (no personal phone numbers, please).
+- **Show what you built:** [Show and tell](https://github.com/behaf/dial-mcp/discussions/categories/show-and-tell).
+
+Every change that comes from your idea goes into the [CHANGELOG](CHANGELOG.md) with your name. Start here: [Build Dial with us](https://github.com/behaf/dial-mcp/discussions/1).
+
 ## Support
 
 jerish@behaf.co
