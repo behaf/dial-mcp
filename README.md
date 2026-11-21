@@ -1,86 +1,98 @@
 # Dial by Behaf
 
-Let your AI assistant make real phone calls to Indian businesses.
-
-<a href="https://www.behaf.co/assets/dial/dial-give-claude-a-phone.mp4"><img src="assets/give-claude-a-phone.png" alt="Watch: Give Claude a phone (31 s video)" width="360"></a>
-
-▶ **[Watch: Give Claude a phone (31 s)](https://www.behaf.co/assets/dial/dial-give-claude-a-phone.mp4)**. Calls shown are staged examples.
-
-Dial is a remote [MCP](https://modelcontextprotocol.io) server. Add it to Claude, Claude Code, Cursor or another MCP client, ask for a call in plain words, and your assistant phones the business, gets through the menu and the hold music, talks to the person who answers, and brings back a summary, the outcome and the transcript.
-
-- Website: https://www.behaf.co/dial
-- Docs: https://www.behaf.co/dial-docs
-- Early access: join the waitlist at https://www.behaf.co/dial#join (we email you when it opens for you)
-- Sign in and wallet (once you have access): https://dial.behaf.co
-- MCP Registry: `co.behaf/dial`
-
-## Connector URL
-
-```
-https://dial.behaf.co/mcp
-```
-
-Streamable HTTP, OAuth sign-in. **This is a connector address, not a web page**: add it inside your AI app. Opening it in a browser shows an error.
-
-## Connect
-
-**Claude (web, desktop):** Settings → Connectors → Add custom connector → name `Dial`, URL `https://dial.behaf.co/mcp` → sign in.
-
-**Claude Code:**
+**An MCP server that makes outbound phone calls to Indian businesses for your AI assistant.**
+You ask in plain words. Dial calls the clinic, the shop or the service centre, talks to the person who answers, and brings back what they said.
 
 ```bash
 claude mcp add --transport http dial https://dial.behaf.co/mcp
 ```
 
-**Cursor and other MCP clients** (`mcp.json`):
+[Docs](https://www.behaf.co/dial-docs) · [Setup page](https://www.behaf.co/mcp) · [Discussions](https://github.com/behaf/dial-mcp/discussions) · [MCP Registry: `co.behaf/dial`](https://registry.modelcontextprotocol.io/v0/servers?search=co.behaf)
 
-```json
-{
-  "mcpServers": {
-    "dial": { "url": "https://dial.behaf.co/mcp" }
-  }
-}
+<a href="https://www.behaf.co/assets/dial/dial-give-claude-a-phone.mp4"><img src="assets/give-claude-a-phone.png" alt="Watch: add Dial and place a call (31 s)" width="360"></a>
+
+The call in the video is a staged example.
+
+---
+
+## What a call looks like (example)
+
+```text
+you     > Call Sunrise Clinic on +91 XXXXXXXXXX. Ask if there is a knee check-up slot on Saturday morning. Don't book.
+claude  > prepare_call  → playbook: enquiry · they may ask: patient name, age, first visit?
+claude  > Here is the plan. Shall I call?
+you     > yes
+claude  > place_call    → call_id c_…
+claude  > get_call      → ringing → talking → ended
+claude  > Partly done. They have a slot at 11:30, but the doctor confirms at 9 am on Saturday.
 ```
 
-**ChatGPT (Business, Enterprise, Edu):** a workspace admin adds a custom MCP server with the same URL and OAuth.
+Every call ends with a status (`done`, `partly`, `failed`, `no_answer`), a typed outcome, a summary and the full transcript.
+
+
+## Connect
+
+| App | How |
+|---|---|
+| Claude (web, desktop) | Settings → Connectors → Add custom connector → name `Dial`, URL `https://dial.behaf.co/mcp` → sign in |
+| Claude Code | `claude mcp add --transport http dial https://dial.behaf.co/mcp` |
+| Cursor, other MCP clients | `{ "mcpServers": { "dial": { "url": "https://dial.behaf.co/mcp" } } }` |
+| ChatGPT Business / Enterprise / Edu | A workspace admin adds a custom MCP server with the same URL and OAuth |
+
+Streamable HTTP, OAuth sign-in, no API keys. `https://dial.behaf.co/mcp` is a connector address, not a web page.
+
+## Access
+
+Dial is in early access. We open it to a few people at a time, so every call can be done well.
+
+**Developers:** join the developer list at https://www.behaf.co/dial?dev=1&src=github#join. We'll email you when your access opens. Then sign in at https://dial.behaf.co, add money to your wallet (UPI or card), and add the URL above.
 
 ## Try it
 
-> Call Sunrise Clinic on +91 XXXXXXXXXX and ask if they have a slot for a knee check-up on Saturday morning. Don't book, just ask.
+Ask for a call in plain words. Your assistant runs `prepare_call` first: it places no call and costs nothing, and shows you the plan and the questions the business will probably ask. It calls only when you say yes.
 
-Your assistant runs a free check first, asks you what the business will probably ask (a name, a time, a budget), shows you the plan, and calls only when you say yes.
+Start with something small: a shop's opening hours, a stock check, a price. Then read the transcript and check the summary against it.
 
 ## Tools
 
-| Tool | What it does |
-|---|---|
-| `prepare_call` | Free readiness check, no call placed: picks the playbook (booking, enquiry, customer care, follow-up, cancellation), lists missing info and likely questions, drafts the brief. |
-| `place_call` | Places the call. Returns a call ID; the call runs in the background. |
-| `get_call` | Waits for a change, then returns status, phase (menu, hold, talking), latest lines, and the summary and outcome when the call ends. |
-| `get_call_transcript` | Full turn-by-turn transcript. |
-| `answer_call_question` | Sends your answer when the business asks something Dial isn't allowed to decide. |
-| `list_calls` | Your recent calls. |
-| `cancel_call` | Cancels a queued call or ends a live one. |
-| `get_account` | Wallet balance, rates and terms status. |
+| Tool | What it does | Type |
+|---|---|---|
+| `prepare_call` | Readiness check, no call placed: picks the playbook, lists missing info and the questions the business is likely to ask | read-only |
+| `place_call` | Places the call. Returns a call ID; the call runs in the background | action |
+| `get_call` | Waits for a change, then returns status, phase (menu, hold, talking), latest lines, and the result when the call ends | read-only |
+| `get_call_transcript` | Full turn-by-turn transcript | read-only |
+| `answer_call_question` | Sends your answer when the business asks something Dial isn't allowed to decide | action |
+| `list_calls` | Your recent calls | read-only |
+| `cancel_call` | Cancels a queued call or ends a live one | action |
+| `get_account` | Wallet balance and terms status | read-only |
 
-Languages a call can open in: English (`en-IN`), Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi and Odia. Dial follows the other side if they switch.
+## Design choices
+
+- **Ask before dialling.** `prepare_call` lists what the business will probably ask, so you answer before the call, not halfway through it.
+- **Ask, don't guess.** If the business asks something you didn't allow (a time, a price), the call relays the question to you with `answer_call_question`.
+- **Call content is untrusted.** What the other side says comes back fenced as data, never as instructions to your assistant. A voice on the line can't steer your agent.
+- **Honest results.** Calls fail. Lines are busy, people hang up. Dial reports that plainly instead of pretending.
+
+## Languages
+
+Calls can open in English, Hindi, Bengali, Tamil, Telugu, Kannada, Malayalam, Marathi, Gujarati, Punjabi and Odia, and follow the other side if they switch. We have checked English, Hindi, Tamil and Malayalam by ear; the others are switched on and less tested. Tell us how they sound.
 
 ## Rules on every call
 
-- The call opens by saying an AI is calling on your behalf.
+- Dia, the voice, says she is an AI assistant calling on your behalf.
 - Your assistant confirms the number and the plan with you before calling.
-- Person-to-business errands, one at a time. No telemarketing, bulk calling, impersonation, threats or debt collection.
+- Outbound only. One person's errand to one business at a time. No telemarketing, bulk calls, impersonation, threats or debt collection.
 - Dial never asks anyone for OTPs, passwords, card or bank details, or Aadhaar numbers.
 - Anyone can say "don't call me again".
-- What the other party says comes back fenced as untrusted content, never as instructions to your assistant.
+- Indian (+91) numbers only for now.
 
 ## Price
 
-₹5 a minute plus GST, billed by the second. Prepaid wallet at https://dial.behaf.co (UPI or card).
+See https://www.behaf.co/dial-pricing. Prepaid wallet at https://dial.behaf.co (UPI or card).
 
 ## Data
 
-No call audio is recorded. Dial keeps your call requests, written transcripts and summaries so you can check what was said; you can delete your data at any time. See the [privacy page](https://www.behaf.co/dial-privacy) and [terms](https://www.behaf.co/dial-terms).
+No call audio is recorded. Dial keeps your call requests, transcripts and summaries so you can check what was said; you can delete them at any time. [Privacy](https://www.behaf.co/dial-privacy) · [Terms](https://www.behaf.co/dial-terms)
 
 ## Build Dial with us
 
@@ -95,7 +107,7 @@ Every change that comes from your idea goes into the [CHANGELOG](CHANGELOG.md) w
 
 ## Support
 
-jerish@behaf.co
+Questions and bugs: [Discussions](https://github.com/behaf/dial-mcp/discussions). Email: jerish@behaf.co
 
 ---
 
