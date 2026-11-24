@@ -2,9 +2,9 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "co.behaf/dial",
   "title": "Dial by Behaf",
-  "description": "Lets your AI phone Indian businesses for bookings, enquiries and status checks, in Indian languages.",
+  "description": "Lets Claude phone Indian businesses for bookings, enquiries and status checks, in Indian languages.",
   "websiteUrl": "https://www.behaf.co/dial",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "remotes": [
     {
       "type": "streamable-http",
