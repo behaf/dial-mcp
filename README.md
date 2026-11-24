@@ -13,6 +13,9 @@ claude mcp add --transport http dial https://dial.behaf.co/mcp
 
 <a href="https://www.behaf.co/dial?src=github"><img src="assets/dial-you-ask-dial-calls.jpg" alt="Dial. You ask. Dial calls." width="640"></a>
 
+<a href="https://www.behaf.co/dial-docs?src=github#demo"><img src="assets/dial-call-preview.gif" alt="Dia, Dial's voice agent, on a call moving a clinic visit to Saturday" width="640"></a><br>
+<sub>▶ <a href="https://www.behaf.co/dial-docs?src=github#demo">Hear the full call with sound (36 s)</a></sub>
+
 ---
 
 ## What a call looks like (example)
