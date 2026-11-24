@@ -1,6 +1,6 @@
 # Dial by Behaf
 
-**An MCP server that makes outbound phone calls to Indian businesses for your AI assistant.**
+**An MCP server that lets Claude make outbound phone calls to Indian businesses. Works with Claude and Claude Code.**
 You ask in plain words. Dial calls the clinic, the shop or the service centre, talks to the person who answers, and brings back what they said.
 
 ```bash
@@ -34,10 +34,8 @@ Every call ends with a status (`done`, `partly`, `failed`, `no_answer`), a typed
 |---|---|
 | Claude (web, desktop) | Settings → Connectors → Add custom connector → name `Dial`, URL `https://dial.behaf.co/mcp` → sign in |
 | Claude Code | `claude mcp add --transport http dial https://dial.behaf.co/mcp` |
-| Cursor, other MCP clients | `{ "mcpServers": { "dial": { "url": "https://dial.behaf.co/mcp" } } }` |
-| ChatGPT Business / Enterprise / Edu | A workspace admin adds a custom MCP server with the same URL and OAuth |
 
-Streamable HTTP, OAuth sign-in, no API keys. `https://dial.behaf.co/mcp` is a connector address, not a web page.
+Dial works with Claude (web, desktop, mobile) and Claude Code. Streamable HTTP, OAuth sign-in, no API keys. `https://dial.behaf.co/mcp` is a connector address, not a web page.
 
 ## Access
 
